@@ -12,13 +12,13 @@ Approach / What I Did:
 I started off by looking at the exmaple posted and try to create a early version of the website, then I changed it into a different style by adding a style section. After I look though the different part of the project and adding it one by one. At the end I did a review of all codes and added comments and notes.
 
 Code Explanation:
-This navigation (<nav>) block allows users to quickly jump to different sections of the website by clicking on the links. Each <a> tag uses a fragment identifier (#section-id), which links to a specific <section> with the corresponding id.
+This navigation block allows users to quickly jump to different sections of the website by clicking on the links. Each <a> tag uses a fragment identifier (#section-id), which links to a specific with the corresponding id.
 
 For example:
-Clicking "About" (<a href="#about">About</a>) takes the user to <section id="about">.
+Clicking "About" takes the user to <section id="about">.
 "Education", "Experience", "Projects", "Hometown", "Additional Information", and "Contact" work the same way.
 
-<nav>
+<!----<nav>
         <a href="#about">About</a>
         <a href="#education">Education</a>
         <a href="#experience">Experience</a>
@@ -27,4 +27,4 @@ Clicking "About" (<a href="#about">About</a>) takes the user to <section id="abo
         <a href="#Additional Information">Additional Information </a>
         <a href="#contact">Contact</a>
        
-    </nav>
+    </nav>---->
