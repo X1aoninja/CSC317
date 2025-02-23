@@ -1,9 +1,9 @@
 # CSC 317 Assignment 2 Submission
 
-Name: Zhien Lou
-Student ID: 922613936
-GitHub Username: X1aoninja
-Assignment Number: 2
+**Name:** Zhien Lou
+**Student ID:**  922613936
+**GitHub Username:** X1aoninja
+**Assignment Number:** 2
 
 ## HTML Personal Portfolio Website Assignment
 Description:
@@ -16,8 +16,7 @@ I started off by looking at the exmaple posted and try to create a early version
 This navigation block allows users to quickly jump to different sections of the website by clicking on the links. Each <a> tag uses a fragment identifier (#section-id), which links to a specific with the corresponding id.
 
 For example:
-Clicking "About" takes the user to <section id="about">.
-"Education", "Experience", "Projects", "Hometown", "Additional Information", and "Contact" work the same way.
+Clicking "About" takes the user to <section id="about">. "Education", "Experience", "Projects", "Hometown", "Additional Information", and "Contact" work the same way.
 
 
 ```html
