@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Zhien Lou - Portfolio</title>
     <style>
+        /* General Styles */
         body {
             background-color: #121212;
             color: #ffffff;
@@ -13,53 +14,73 @@
             padding: 0;
             text-align: left;
         }
+
+        /* Header & Navigation */
         header {
             padding: 20px;
             font-size: 24px;
             font-weight: bold;
+            text-align: center;
+            background: #222;
         }
+
         nav {
-            margin: 20px 0;
+            background-color: #333;
+            text-align: center;
+            padding: 10px;
         }
+
         nav a {
             color: #ffffff;
             text-decoration: none;
             margin: 0 15px;
             font-size: 18px;
         }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        /* Main Content */
         main {
-            padding: 40px;
-        }
-        footer {
-            margin-top: 20px;
-            padding: 10px;
-            font-size: 14px;
-            opacity: 0.7;
-        }
-        .container {
-            max-width: 800px;
+            width: 90%;
+            max-width: 1200px; /* CHANGE: Ensures content is not too wide */
             margin: auto;
+            padding: 20px;
         }
-        img {
-            width: 200px;
-            border-radius: 50%;
-            margin-top: 20px;
+
+        section {
+            margin-bottom: 30px;
         }
-        th {
-            background-color: #333;
+
+        /* Projects Section */
+        article {  /* CHANGE: Used <article> instead of <div> */
+            background: white;
+            color: black;
+            padding: 20px;
+            margin: 10px 0;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
         }
+
+        /* Responsive Contact Form */
         .contact-form {
-            margin-top: 30px;
-            text-align: left;
+            background: white;
+            color: black;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
         }
+
         .contact-form input, .contact-form textarea {
-            width: 100%;
+            width: 100%; /* CHANGE: Input fields are now responsive */
             padding: 10px;
             margin-top: 5px;
             background: #222;
             color: white;
             border: 1px solid white;
         }
+
         .contact-form button {
             margin-top: 10px;
             padding: 10px;
@@ -68,35 +89,83 @@
             border: none;
             cursor: pointer;
         }
+
+        .contact-form button:hover {
+            background: #666;
+        }
+
+        /* Footer */
+        footer {
+            background: #222;
+            text-align: center;
+            padding: 20px;
+            margin-top: 30px;
+        }
+
+        footer p {
+            margin: 5px 0;
+            font-size: 14px;
+            opacity: 0.7;
+        }
+
+        footer a {
+            color: #ffffff;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive Images */
+        .hometown-images img { /* CHANGE: Images now have max-width for responsiveness */
+            width: 100%;
+            max-width: 400px;
+            height: auto;
+            margin: 10px;
+            border-radius: 5px;
+        }
+
     </style>
 </head>
 <body>
+
+    <!-- Header Section -->
     <header>
         <h1>Zhien Lou</h1>
-        
     </header>
+
+    <!-- Navigation Menu -->
     <nav>
         <a href="#about">About</a>
         <a href="#education">Education</a>
         <a href="#experience">Experience</a>
-        <a href="#Projects">Projects</a>
+        <a href="#projects">Projects</a>
         <a href="#hometown">Hometown</a>
+        <a href="#Additional Information">Additional Information </a>
         <a href="#contact">Contact</a>
+       
     </nav>
-    <main class="container">
+
+    <!-- Main Content -->
+    <main>
+        <!-- About Section -->
         <section id="about">
             <h2>About Me</h2>
-            <p>I'm a Computer Science student at San Francisco State University, passionate about software development and problem-solving. I enjoy learning new technologies and applying them to real-world projects. My goal is to become a software engineer specializing in web development and artificial intelligence.</p>
+            <p>I'm a Computer Science student at San Francisco State University, passionate about software development and problem-solving.</p>
         </section>
+
+        <!-- Education Section -->
         <section id="education">
             <h2>Education</h2>
             <ul>
                 <li>Bachelor of Science in Computer Science - San Francisco State University (Expected 2026)</li>
                 <li>Certified in Python Programming</li>
             </ul>
-                </tr>
-            </table>
         </section>
+
+        <!-- Experience Section -->
         <section id="experience">
             <h2>Experience</h2>
             <ol>
@@ -104,60 +173,90 @@
                 <li>Freelance Web Developer</li>
             </ol>
         </section>
-        <section id="Projects">
+
+        <!-- Projects Section -->
+        <section id="projects">
             <h2>Projects</h2>
-            <ul>
-                <div class="project">
-                    <h3>Personal Finance Tracker</h3>
-                    <p><strong>Tech Stack:</strong> Python (Flask/Django), JavaScript, SQL</p>
-                    <p><strong>Description:</strong> A web app where users log income and expenses, track their spending habits, and generate reports. Features include budgeting, trend analysis, and alerts for overspending.</p>
-                </div>
-            
-                <div class="project">
-                    <h3>AI-Powered Resume Analyzer</h3>
-                    <p><strong>Tech Stack:</strong> Python (Flask/Django), NLP (spaCy, OpenAI API), HTML/CSS</p>
-                    <p><strong>Description:</strong> Users can upload resumes, and the app will analyze keywords, readability, and job-matching potential. It provides suggestions for improvement using AI-powered insights.</p>
-                </div>
-            </ul>
+
+            <!-- CHANGE: Used <article> for each project for better semantic structure -->
+            <article>
+                <h3>Personal Finance Tracker</h3>
+                <p><strong>Tech Stack:</strong> Python (Flask/Django), JavaScript, SQL</p>
+                <p><strong>Description:</strong> A web app where users log income and expenses, track spending habits, and generate reports.</p>
+            </article>
+
+            <article>
+                <h3>AI-Powered Resume Analyzer</h3>
+                <p><strong>Tech Stack:</strong> Python (Flask/Django), NLP (spaCy, OpenAI API), HTML/CSS</p>
+                <p><strong>Description:</strong> Users can upload resumes, and the app will analyze keywords, readability, and job-matching potential.</p>
+            </article>
+        </section>
+
+        <!-- Hometown Section -->
         <section id="hometown">
             <h2>Hometown</h2>
-            <p>Originally from Beijing, China, a city rich in history, culture, and technological advancements. I love exploring its historic sites, modern architecture, and diverse food scene.</p>
-            <img src="images/IMG_4452.jpg" alt="Beijing, China">
-            <img src="images/download.jpg" alt="Beijing, China" width="15000" height="200">
-            <img src="images/images.jpg" alt="Beijing, China" width="15000" height="200">
-            
-    
+            <p>Originally from Beijing, China.</p>
+            <div class="hometown-images">
+                <img src="images/IMG_4452.jpg" alt="Beijing, China">
+                <img src="images/download.jpg" alt="Beijing, China">
+                <img src="images/images.jpg" alt="Beijing, China">
+            </div>
         </section>
+
+        <!-- Additional Information -->
+         <section id="Additional Information">
+            <h2>Additional Information</h2>
+            <p>Watch my introduction video to learn more about me and my work:</p>
+            
+            <!-- ✅ Embedded YouTube Video -->
+            <iframe width="560" height="315" 
+            src="https://www.youtube.com/embed/dQw4w9WgXcQ?si=qChki1jZ0MxHFKdt" 
+            title="introduction video" 
+            frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+            referrerpolicy="strict-origin-when-cross-origin" 
+            allowfullscreen>
+          </iframe>
+       
+            <p>Hobbies: Playing video games, Table tennis, and badminton.</p>
+            <div class="Hobbies">
+                <img src="images/download (1).jpg" alt="Hobbies">
+                <img src="images/download (2).jpg" alt="Hobbies">
+                <img src="images/download (3).jpg" alt="Hobbies">
+            </div>
+        </section>
+
+        <!-- Contact Form with Validation -->
         <section id="contact" class="contact-form">
             <h2>Contact Me</h2>
             <form>
+                <!-- CHANGE: Added validation with pattern attribute -->
                 <label for="name">Name:</label>
-                <input type="text" id="name" name="name" required>
+                <input type="text" id="name" name="name" required pattern="[A-Za-z\s]+" title="Only letters and spaces allowed">
+                
                 <label for="email">Email:</label>
                 <input type="email" id="email" name="email" required>
+                
                 <label for="subject">Subject:</label>
                 <input type="text" id="subject" name="subject" required>
+                
                 <label for="message">Message:</label>
                 <textarea id="message" name="message" rows="4" required></textarea>
+                
                 <button type="submit">Send Message</button>
             </form>
         </section>
     </main>
+
+    <!-- Footer Section -->
     <footer>
         <p>&copy; 2024 Zhien Lou. All rights reserved.</p>
-        <img src="images/sfsu.webp" alt="San Francisco State University Logo" width="100">
-
-        <h2>Contact</h2>
-    <p>
-        <a href="mailto:zhien2468@gmail.com">Email</a>
-        <a href="https://github.com/X1aoninja" target="_blank">GitHub</a>
-        <a href="https://www.linkedin.com/in/zhine-lou-528634351/" target="_blank">LinkedIn</a>
-    </p>
-
-    <p>Copyright © Zhien Lou 2025</p>
-
-</body>
-</html>
+        <p>
+            <a href="mailto:zhien2468@gmail.com">Email</a>
+            <a href="https://github.com/X1aoninja" target="_blank">GitHub</a>
+            <a href="https://www.linkedin.com/in/zhine-lou-528634351/" target="_blank">LinkedIn</a>
+        </p>
     </footer>
+
 </body>
 </html>
