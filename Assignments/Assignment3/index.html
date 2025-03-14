@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zhien Lou - Portfolio</title>
+    <link id="themeStylesheet" rel="stylesheet" href="styles/hybrid.css">
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <h1>Zhien Lou</h1>
+        <button id="themeToggle">🌙 Dark Mode</button>
+        <label for="styleSwitcher"></label>
+        <select id="styleSwitcher">
+            <option value="styles/AI-1.css">AI-1</option>
+            <option value="styles/AI-2.css">AI-2</option>
+            <option value="styles/styles.css">Style</option>
+            <option value="styles/hybrid.css">Hybrid</option>
+        </select>
+    </header>
+
+    <!-- Navigation Menu -->
+    <nav>
+        <a href="#about">About</a>
+        <a href="#education">Education</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#hometown">Hometown</a>
+        <a href="#Additional Information">Additional Information </a>
+        <a href="#contact">Contact</a>
+       
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        <!-- About Section -->
+        <section id="about">
+            <h2>About Me</h2>
+            <p>I'm a Computer Science student at San Francisco State University, passionate about software development and problem-solving.</p>
+        </section>
+
+        <!-- Education Section -->
+        <section id="education">
+            <h2>Education</h2>
+            <ul>
+                <li>Bachelor of Science in Computer Science - San Francisco State University (Expected 2026)</li>
+                <li>Certified in Python Programming</li>
+            </ul>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience">
+            <h2>Experience</h2>
+            <ol>
+                <li>Customer Service Intern - Farmers Insurance Agency (2022-Present)</li>
+                <li>Freelance Web Developer</li>
+            </ol>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects">
+            <h2>Projects</h2>
+
+            <!-- CHANGE: Used <article> for each project for better semantic structure -->
+            <article>
+                <h3>Personal Finance Tracker</h3>
+                <p><strong>Tech Stack:</strong> Python (Flask/Django), JavaScript, SQL</p>
+                <p><strong>Description:</strong> A web app where users log income and expenses, track spending habits, and generate reports.</p>
+            </article>
+
+            <article>
+                <h3>AI-Powered Resume Analyzer</h3>
+                <p><strong>Tech Stack:</strong> Python (Flask/Django), NLP (spaCy, OpenAI API), HTML/CSS</p>
+                <p><strong>Description:</strong> Users can upload resumes, and the app will analyze keywords, readability, and job-matching potential.</p>
+            </article>
+        </section>
+
+        <!-- Hometown Section -->
+        <section id="hometown">
+            <h2>Hometown</h2>
+            <p>Originally from Beijing, China.</p>
+            <div class="hometown-images">
+                <img src="images/IMG_4452.jpg" alt="Beijing, China">
+                <img src="images/download.jpg" alt="Beijing, China">
+                <img src="images/images.jpg" alt="Beijing, China">
+            </div>
+        </section>
+
+        <!-- Additional Information -->
+         <section id="Additional Information">
+            <h2>Additional Information</h2>
+            <p>Watch my introduction video to learn more about me and my work:</p>
+            
+            <!-- ✅ Embedded YouTube Video -->
+            <iframe width="560" height="315" 
+            src="https://www.youtube.com/embed/dQw4w9WgXcQ?si=qChki1jZ0MxHFKdt" 
+            title="introduction video" 
+            frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+            referrerpolicy="strict-origin-when-cross-origin" 
+            allowfullscreen>
+          </iframe>
+       
+            <p>Hobbies: Playing video games, Table tennis, and badminton.</p>
+            <div class="Hobbies">
+                <img src="images/download (1).jpg" alt="Hobbies">
+                <img src="images/download (2).jpg" alt="Hobbies">
+                <img src="images/download (3).jpg" alt="Hobbies">
+            </div>
+        </section>
+
+        <!-- Contact Form with Validation -->
+        <section id="contact" class="contact-form">
+            <h2>Contact Me</h2>
+            <form>
+                <!-- CHANGE: Added validation with pattern attribute -->
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required pattern="[A-Za-z\s]+" title="Only letters and spaces allowed">
+                
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                
+                <label for="subject">Subject:</label>
+                <input type="text" id="subject" name="subject" required>
+                
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" rows="4" required></textarea>
+                
+                <button type="submit">Send Message</button>
+            </form>
+        </section>
+    </main>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2024 Zhien Lou. All rights reserved.</p>
+        <p>
+            <a href="mailto:zhien2468@gmail.com">Email</a>
+            <a href="https://github.com/X1aoninja" target="_blank">GitHub</a>
+            <a href="https://www.linkedin.com/in/zhine-lou-528634351/" target="_blank">LinkedIn</a>
+        </p>
+    </footer>
+    <script>
+        document.getElementById("themeToggle").addEventListener("click", function() {
+    const body = document.body;
+
+    // Add transition effect
+    body.classList.add("theme-transition");
+
+    // Toggle Dark Mode
+    body.classList.toggle("dark-mode");
+
+    // Save user preference
+    if (body.classList.contains("dark-mode")) {
+        localStorage.setItem("theme", "dark");
+        this.textContent = "☀️ Light Mode";
+    } else {
+        localStorage.setItem("theme", "light");
+        this.textContent = "🌙 Dark Mode";
+    }
+
+    // Remove transition class after animation
+    setTimeout(() => body.classList.remove("theme-transition"), 500);
+});
+
+// Load saved theme preference
+window.onload = function() {
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme === "dark") {
+        document.body.classList.add("dark-mode");
+        document.getElementById("themeToggle").textContent = "☀️ Light Mode";
+    }
+};
+        document.getElementById("styleSwitcher").addEventListener("change", function() {
+            document.getElementById("themeStylesheet").setAttribute("href", this.value);
+        });
+    </script>
+
+</body>
+</html>

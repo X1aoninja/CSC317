@@ -1,0 +1,210 @@
+/*I liked the AI-2 way of have all the different colors in the front so everything is
+easy to find and change. I also liked the font postioning and style of my design so I use that as
+a base desgin for my hybrid.css file. I loved the color scheme of the AI-1 file so I used that
+as a light mode for the hybraid.css file. I also used the color scheme of the styles.css file
+as a dark mode for the hybrid.css file. Both AI-1 and AI-2 lack some sections of the footer and
+contact, So i used the styles.css file as a base for those sections. */
+
+/* ============================
+   General Styles (Light Mode)
+   ============================ */
+   :root {
+    --bg-color: #72b1e9; /* Light icy blue background */
+    --text-color: #f0e8e8;
+    --nav-bg: #295794;
+    --header-bg: #4594f0;
+    --contact-bg: #4a90e2;
+    --button-bg: #4a90e2;
+    --footer-bg: #295794;
+}
+
+/* ============================
+   Dark Mode Styles
+   ============================ */
+.dark-mode {
+    --bg-color: #121212;
+    --text-color: #ffffff;
+    --nav-bg: #333;
+    --header-bg: #222;
+    --contact-bg: #000;
+    --button-bg: #444;
+    --footer-bg: #222;
+}
+
+/* Apply Theme Variables */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+/* Navigation */
+nav {
+    background: var(--nav-bg);
+    color: #fff;
+    padding: 15px 0;
+    text-align: center;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 20px;
+    display: inline-block;
+    transition: 0.3s ease;
+}
+
+nav a:hover {
+    background: #4a90e2;
+    border-radius: 5px;
+}
+
+/* Header */
+header {
+    padding: 90px;
+    font-size: 24px;
+    color: white;
+    text-align: center;
+    background: var(--header-bg);
+}
+
+header h1 {
+    font-size: 2.5em;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+}
+
+/* Main Content */
+main {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+}
+
+/* Contact Form */
+.contact-form {
+    background: var(--contact-bg);
+    color: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Input fields */
+.contact-form input, 
+.contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    background: var(--contact-bg);
+    color: white;
+    border: 1px solid white;
+}
+
+/* Button */
+.contact-form button {
+    margin-top: 10px;
+    padding: 10px;
+    background: var(--button-bg);
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.contact-form button:hover {
+    background: var(--button-bg);
+}
+
+/* Footer */
+footer {
+    background: var(--footer-bg);
+    text-align: center;
+    padding: 20px;
+    margin-top: 30px;
+}
+
+footer p {
+    margin: 5px 0;
+    font-size: 14px;
+    opacity: 0.7;
+}
+
+footer a {
+    color: #ffffff;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive Images */
+.hometown-images img {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    margin: 10px;
+    border-radius: 5px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    body {
+        font-size: 16px;
+    }
+
+    nav {
+        display: flex;
+        flex-direction: column;
+    }
+
+    nav a {
+        display: block;
+        padding: 10px;
+    }
+
+    main {
+        width: 95%;
+    }
+
+    .hometown-images img {
+        max-width: 100%;
+    }
+}
+
+/* Keyframe Animation */
+@keyframes themeFade {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+body.theme-transition {
+    animation: themeFade 0.5s ease-in-out;
+}
+
+/* Button for Dark Mode */
+#themeToggle {
+    cursor: pointer;
+    padding: 10px 15px;
+    border: none;
+    background: var(--button-bg);
+    color: white;
+    border-radius: 5px;
+}
+
+.dark-mode #themeToggle {
+    background: var(--button-bg);
+}

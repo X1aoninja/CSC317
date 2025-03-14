@@ -1,0 +1,169 @@
+/* ============================
+   General Styles
+   ============================ */
+   body {
+    transition: background-color 0.5s ease, color 0.5s ease;
+    background-color: #121212; /* Dark background for a modern look */
+    color: #ffffff; /* White text for contrast */
+    font-family: Arial, sans-serif; /* Standard readable font */
+    margin: 0;
+    padding: 0;
+    text-align: left; /* Default text alignment */
+}
+
+/* ============================
+   Header & Navigation
+   ============================ */
+header {
+    padding: 20px;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    background: #222; /* Slightly lighter dark background */
+}
+
+/* Navigation bar */
+nav {
+    background-color: #333; /* Dark background for navigation */
+    text-align: center;
+    padding: 10px;
+}
+
+nav a {
+    color: #ffffff; /* White text links */
+    text-decoration: none;
+    margin: 0 15px; /* Spacing between links */
+    font-size: 18px;
+}
+
+nav a:hover {
+    text-decoration: underline; /* Adds underline when hovered */
+}
+
+/* ============================
+   Main Content Area
+   ============================ */
+main {
+    width: 90%;
+    max-width: 1200px; /* Prevents content from being too wide on large screens */
+    margin: auto; /* Centers the content */
+    padding: 20px;
+}
+
+section {
+    margin-bottom: 30px; /* Adds spacing between sections */
+}
+
+/* ============================
+   Projects Section
+   ============================ */
+article { /* Instead of <div>, <article> is used for semantic meaning */
+    background: rgb(22, 22, 22); /* White background for contrast */
+    color: rgb(245, 239, 239); /* Dark text for readability */
+    padding: 20px;
+    margin: 10px 0;
+    border-radius: 5px; /* Rounded corners */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+}
+
+/* ============================
+   Contact Form
+   ============================ */
+.contact-form {
+    background: rgb(3, 3, 3);
+    color: rgb(248, 242, 242);
+    padding: 20px;
+    border-radius: 5px; /* Smooth rounded edges */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); /* Adds subtle shadow effect */
+}
+
+/* Input fields */
+.contact-form input, 
+.contact-form textarea {
+    width: 100%; /* Makes input fields fill their container */
+    padding: 10px;
+    margin-top: 5px;
+    background: #222; /* Dark background for consistency */
+    color: white; /* White text for contrast */
+    border: 1px solid white; /* White border */
+}
+
+/* Button styling */
+.contact-form button {
+    margin-top: 10px;
+    padding: 10px;
+    background: #444; /* Dark gray button */
+    color: white;
+    border: none;
+    cursor: pointer; /* Changes cursor to pointer on hover */
+}
+
+.contact-form button:hover {
+    background: #666; /* Slightly lighter shade when hovered */
+}
+
+/* ============================
+   Footer
+   ============================ */
+footer {
+    background: #222; /* Consistent with header */
+    text-align: center;
+    padding: 20px;
+    margin-top: 30px;
+}
+
+/* Footer text */
+footer p {
+    margin: 5px 0;
+    font-size: 14px;
+    opacity: 0.7; /* Slightly transparent text */
+}
+
+/* Footer links */
+footer a {
+    color: #ffffff;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* ============================
+   Responsive Images
+   ============================ */
+.hometown-images img {
+    width: 100%; /* Ensures images scale properly */
+    max-width: 400px; /* Limits the maximum size */
+    height: auto; /* Maintains aspect ratio */
+    margin: 10px;
+    border-radius: 5px; /* Smooth rounded edges */
+}
+
+/* ============================
+   Responsive Design for Mobile
+   ============================ */
+@media (max-width: 768px) {
+    body {
+        font-size: 16px; /* Adjusts text size for readability */
+    }
+
+    nav {
+        display: flex;
+        flex-direction: column; /* Stacks nav links vertically */
+    }
+
+    nav a {
+        display: block;
+        padding: 10px;
+    }
+
+    main {
+        width: 95%; /* Makes content take up more space on smaller screens */
+    }
+
+    .hometown-images img {
+        max-width: 100%; /* Ensures images fit on smaller screens */
+    }
+}
