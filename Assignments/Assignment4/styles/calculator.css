@@ -1,63 +1,68 @@
 
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background-color: #000;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-    }
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
 
-    .calculator {
-      width: 320px;
-    }
+.calculator {
+  width: 340px;
+}
 
-    #display {
-      background: #1e1e1e;
-      color: white;
-      text-align: right;
-      padding: 20px;
-      font-size: 2.5rem;
-      border-radius: 10px 10px 0 0;
-      overflow-x: auto;
-      white-space: nowrap;
-      scrollbar-width: thin;
-    }
+.display {
+  background: #1e1e1e;
+  color: white;
+  text-align: right;
+  padding: 20px;
+  font-size: 2.5rem;
+  border-radius: 10px 10px 0 0;
+  overflow-x: auto;
+  white-space: nowrap;
+}
 
-    .buttons {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 1px;
-    }
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+}
 
-    button {
-      font-size: 1.5rem;
-      padding: 20px;
-      border: none;
-      cursor: pointer;
-      transition: transform 0.1s ease, background-color 0.2s;
-    }
+button {
+  font-size: 1.5rem;
+  padding: 20px;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.1s ease;
+}
 
-    button:active {
-      transform: scale(0.95);
-    }
+button:active {
+  transform: scale(0.95);
+}
 
-    .btn-gray {
-      background-color: #a5a5a5;
-      color: black;
-    }
+.btn-gray {
+  background-color: #a5a5a5;
+  color: black;
+}
 
-    .btn-dark {
-      background-color: #333;
-      color: white;
-    }
+.btn-dark {
+  background-color: #333;
+  color: white;
+}
 
-    .btn-orange {
-      background-color: #f39c12;
-      color: white;
-    }
+.btn-orange {
+  background-color: #f39c12;
+  color: white;
+}
 
-    .span-two {
-      grid-column: span 2;
-    }
+.btn-memory {
+  background-color: #4e4e4e;
+  color: #0ff;
+  font-weight: bold;
+}
+
+.span-two {
+  grid-column: span 2;
+}

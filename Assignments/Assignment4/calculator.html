@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Animated Calculator</title>
-  <link rel="stylesheet" href="styles/calculator.css">
-  
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Memory Calculator</title>
+  <link rel="stylesheet" href="styles/calculator.css" />
 </head>
 <body>
   <div class="calculator">
-    <div id="display">0</div>
+    <div id="display" class="display">0</div>
     <div class="buttons">
       <button class="btn-gray" data-action="clear">AC</button>
       <button class="btn-gray" data-action="sign">+/-</button>
@@ -33,6 +33,12 @@
       <button class="btn-dark span-two" data-number="0">0</button>
       <button class="btn-dark" onclick="appendDecimal()">.</button>
       <button class="btn-orange" data-action="equals">=</button>
+
+      <!-- Memory buttons -->
+      <button class="btn-memory" data-action="memory-add">M+</button>
+      <button class="btn-memory" data-action="memory-subtract">M-</button>
+      <button class="btn-memory" data-action="memory-recall">MR</button>
+      <button class="btn-memory" data-action="memory-clear">MC</button>
     </div>
   </div>
 
