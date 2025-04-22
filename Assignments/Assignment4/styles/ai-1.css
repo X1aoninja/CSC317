@@ -1,0 +1,128 @@
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f8ff; /* Light icy blue background */
+    color: #333;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+/* Navigation Bar */
+nav {
+    background: #1e3a5f; /* Deep winter blue */
+    color: #fff;
+    padding: 15px 0;
+    text-align: center;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+nav a {
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 20px;
+    display: inline-block;
+    transition: 0.3s ease;
+}
+nav a:hover {
+    background: #4a90e2; /* Soft icy blue hover effect */
+    border-radius: 5px;
+}
+
+/* Header/Intro Section */
+header {
+    background: url('winter-landscape.jpg') no-repeat center center/cover;
+    color: white;
+    text-align: center;
+    padding: 100px 20px;
+}
+header h1 {
+    font-size: 2.5em;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+}
+
+/* About Me Section */
+.about {
+    padding: 50px 20px;
+    max-width: 900px;
+    margin: auto;
+    text-align: center;
+}
+
+/* Education Section */
+.education {
+    background: #d9eefa; /* Soft winter blue */
+    padding: 50px 20px;
+    text-align: center;
+}
+
+/* Projects Section */
+.projects {
+    padding: 50px 20px;
+    text-align: center;
+}
+.projects a {
+    text-decoration: none;
+    color: #1e3a5f;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+.projects a:hover {
+    color: #4a90e2;
+}
+
+/* Contact Form */
+.contact {
+    background: #eef5fb;
+    padding: 50px 20px;
+    text-align: center;
+}
+.contact form {
+    max-width: 600px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+}
+.contact input, .contact textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+.contact button {
+    background: #1e3a5f;
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+.contact button:hover {
+    background: #4a90e2;
+}
+
+/* Footer */
+footer {
+    background: #1e3a5f;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    margin-top: 20px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    nav a {
+        display: block;
+        padding: 10px;
+    }
+    header {
+        padding: 80px 20px;
+    }
+    .contact form {
+        width: 90%;
+    }
+}
