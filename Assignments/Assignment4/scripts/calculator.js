@@ -1,132 +1,136 @@
 const display = document.getElementById("display");
-let current = "0";
-let previous = "";
-let operator = null;
-let shouldReset = false;
+
+let currentInput = "0";
+let previousInput = "";
+let currentOperator = null;
+let resetNext = false;
 let memory = 0;
 
 function updateDisplay() {
-  display.textContent = current;
+  display.textContent = currentInput;
+}
+
+function resetCalculator() {
+  currentInput = "0";
+  previousInput = "";
+  currentOperator = null;
+  resetNext = false;
 }
 
 function appendNumber(number) {
-  if (current === "0" || shouldReset) {
-    current = number;
-    shouldReset = false;
+  if (currentInput === "Error") return;
+  if (currentInput === "0" || resetNext) {
+    currentInput = number;
+    resetNext = false;
   } else {
-    current += number;
+    currentInput += number;
+  }
+}
+
+function appendDecimal() {
+  if (currentInput === "Error") return;
+  if (!currentInput.includes(".")) {
+    currentInput += ".";
   }
 }
 
 function chooseOperator(op) {
-  if (operator !== null) evaluate();
-  previous = current;
-  operator = op;
-  shouldReset = true;
+  if (currentInput === "Error") return;
+  if (currentOperator !== null) evaluate();
+  previousInput = currentInput;
+  currentOperator = op;
+  resetNext = true;
 }
 
 function evaluate() {
-  if (operator === null || shouldReset) return;
-  const prev = parseFloat(previous);
-  const curr = parseFloat(current);
-  if (operator === "÷" && curr === 0) {
-    current = "Error";
-    operator = null;
+  if (currentOperator === null || resetNext || currentInput === "Error") return;
+
+  const prev = parseFloat(previousInput);
+  const curr = parseFloat(currentInput);
+
+  if (currentOperator === "÷" && curr === 0) {
+    currentInput = "Error";
+    currentOperator = null;
     return;
   }
 
-  switch (operator) {
-    case "+": current = (prev + curr).toString(); break;
-    case "-": current = (prev - curr).toString(); break;
-    case "×": current = (prev * curr).toString(); break;
-    case "÷": current = (prev / curr).toString(); break;
+  switch (currentOperator) {
+    case "+": currentInput = (prev + curr).toString(); break;
+    case "-": currentInput = (prev - curr).toString(); break;
+    case "×": currentInput = (prev * curr).toString(); break;
+    case "÷": currentInput = (prev / curr).toString(); break;
   }
 
-  operator = null;
-  shouldReset = true;
-}
-
-function clear() {
-  current = "0";
-  previous = "";
-  operator = null;
+  currentOperator = null;
+  resetNext = true;
 }
 
 function toggleSign() {
-  current = (parseFloat(current) * -1).toString();
+  if (currentInput === "Error") return;
+  currentInput = (parseFloat(currentInput) * -1).toString();
 }
 
 function percent() {
-  current = (parseFloat(current) / 100).toString();
+  if (currentInput === "Error") return;
+  currentInput = (parseFloat(currentInput) / 100).toString();
 }
 
-function appendDecimal() {
-  if (!current.includes(".")) {
-    current += ".";
+function handleAction(action) {
+  switch (action) {
+    case "clear": resetCalculator(); break;
+    case "sign": toggleSign(); break;
+    case "percent": percent(); break;
+    case "equals": evaluate(); break;
+    case "decimal": appendDecimal(); break;
+    case "add": chooseOperator("+"); break;
+    case "subtract": chooseOperator("-"); break;
+    case "multiply": chooseOperator("×"); break;
+    case "divide": chooseOperator("÷"); break;
+    case "memory-add": memory += parseFloat(currentInput); break;
+    case "memory-subtract": memory -= parseFloat(currentInput); break;
+    case "memory-recall":
+      currentInput = memory.toString();
+      resetNext = true;
+      break;
+    case "memory-clear": memory = 0; break;
   }
-  updateDisplay();
-}
-
-// Memory Functions
-function memoryAdd() {
-  memory += parseFloat(current);
-}
-
-function memorySubtract() {
-  memory -= parseFloat(current);
-}
-
-function memoryRecall() {
-  current = memory.toString();
-  shouldReset = true;
-}
-
-function memoryClear() {
-  memory = 0;
 }
 
 function handleButtonClick(e) {
-  const btn = e.target;
-  const num = btn.dataset.number;
-  const action = btn.dataset.action;
+  const button = e.target;
+  const number = button.dataset.number;
+  const action = button.dataset.action;
 
-  if (num !== undefined) {
-    appendNumber(num);
+  if (currentInput === "Error" && action !== "clear") return;
+
+  if (number !== undefined) {
+    appendNumber(number);
   } else if (action !== undefined) {
-    switch (action) {
-      case "add": chooseOperator("+"); break;
-      case "subtract": chooseOperator("-"); break;
-      case "multiply": chooseOperator("×"); break;
-      case "divide": chooseOperator("÷"); break;
-      case "equals": evaluate(); break;
-      case "clear": clear(); break;
-      case "sign": toggleSign(); break;
-      case "percent": percent(); break;
-      case "memory-add": memoryAdd(); break;
-      case "memory-subtract": memorySubtract(); break;
-      case "memory-recall": memoryRecall(); break;
-      case "memory-clear": memoryClear(); break;
-    }
+    handleAction(action);
   }
 
   updateDisplay();
 }
 
-document.querySelectorAll("button").forEach((btn) => {
-  btn.addEventListener("click", handleButtonClick);
-});
+document.querySelectorAll("button").forEach(button =>
+  button.addEventListener("click", handleButtonClick)
+);
 
-document.addEventListener("keydown", (e) => {
+document.addEventListener("keydown", e => {
+  if (currentInput === "Error" && e.key !== "Escape") return;
+
   if (e.key >= "0" && e.key <= "9") appendNumber(e.key);
   if (e.key === ".") appendDecimal();
-  if (e.key === "+" || e.key === "-") chooseOperator(e.key);
+  if (e.key === "+") chooseOperator("+");
+  if (e.key === "-") chooseOperator("-");
   if (e.key === "*") chooseOperator("×");
   if (e.key === "/") chooseOperator("÷");
   if (e.key === "=" || e.key === "Enter") evaluate();
   if (e.key === "Backspace") {
-    current = current.slice(0, -1) || "0";
+    currentInput = currentInput.slice(0, -1) || "0";
   }
-  if (e.key === "Escape") clear();
+  if (e.key === "Escape") resetCalculator();
+
   updateDisplay();
 });
 

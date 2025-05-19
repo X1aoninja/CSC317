@@ -1,0 +1,115 @@
+
+/* ===== General Layout ===== */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* ===== Calculator Container ===== */
+.calculator {
+  width: 340px;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+/* ===== Display ===== */
+.display {
+  background: #1e1e1e;
+  color: white;
+  text-align: right;
+  padding: 20px;
+  font-size: 2.5rem;
+  border-radius: 10px 10px 0 0;
+  overflow-x: auto;
+  white-space: nowrap;
+  user-select: none;
+}
+
+/* ===== Button Grid ===== */
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  background-color: #1e1e1e;
+  padding: 10px;
+  border-radius: 0 0 10px 10px;
+}
+
+/* ===== Buttons ===== */
+button {
+  font-size: 1.5rem;
+  padding: 20px;
+  border: none;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: transform 0.1s ease, background-color 0.2s ease, filter 0.2s ease;
+}
+
+button:hover {
+  filter: brightness(1.1);
+}
+
+button:active {
+  transform: scale(0.96);
+}
+
+button:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px #f39c12;
+}
+
+/* ===== Button Colors ===== */
+.btn-gray {
+  background-color: #a5a5a5;
+  color: black;
+}
+
+.btn-dark {
+  background-color: #333;
+  color: white;
+}
+
+.btn-orange {
+  background-color: #f39c12;
+  color: white;
+}
+
+.btn-orange:hover {
+  background-color: #e67e22;
+}
+
+/* ===== Memory Buttons ===== */
+.btn-memory {
+  background-color: #4e4e4e;
+  color: #00e0ff;
+  font-weight: bold;
+  border-radius: 5px;
+}
+
+/* ===== Special Layout ===== */
+.span-two {
+  grid-column: span 2;
+}
+
+/* ===== Responsive Design ===== */
+@media (max-width: 400px) {
+  .calculator {
+    width: 95%;
+  }
+
+  .display {
+    font-size: 2rem;
+    padding: 15px;
+  }
+
+  button {
+    font-size: 1.2rem;
+    padding: 15px;
+  }
+}
